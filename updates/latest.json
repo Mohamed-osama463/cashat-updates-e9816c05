@@ -1,0 +1,58 @@
+{
+  "app": "cashat",
+  "version": 1,
+  "published": "2026-10-14T10:48:39.988Z",
+  "notes": "First release – update channel enabled",
+  "minShell": 1,
+  "files": {
+    "admin.html": {
+      "sha256": "aa9dc115cfbb7712e70dc337df6d6ca3d23ac443629b27c3cda9b8bcc04af66f",
+      "size": 6770
+    },
+    "admin.js": {
+      "sha256": "9b77b3fc917103dff9c38c0d16497fe34b6a53b1a1cccd0af15acac624065bff",
+      "size": 52947
+    },
+    "cashier.js": {
+      "sha256": "4a001d820b15bb33680f54594eb1cf4f58567827522c6eeb267f9731d7dd69ea",
+      "size": 19144
+    },
+    "icon.png": {
+      "sha256": "b67385db1fa542f8a4cb4a67e1d168c88a47ff0c2fc56bb52dacd1a046d816e9",
+      "size": 73274
+    },
+    "index.html": {
+      "sha256": "76533f805a53b747ef003308416c2e0ca78d956994fb4500c9e600b0636f693c",
+      "size": 7960
+    },
+    "logos/cashat.png": {
+      "sha256": "b67385db1fa542f8a4cb4a67e1d168c88a47ff0c2fc56bb52dacd1a046d816e9",
+      "size": 73274
+    },
+    "logos/fawry.png": {
+      "sha256": "463917741b88fbbed81168557f64b70f67fa340e7a8065c1cebb52ad5f385dae",
+      "size": 23638
+    },
+    "logos/instapay.png": {
+      "sha256": "63fc68322f6f11d1e621387b3634e7a75beea6d54aa01aa554dd5790a32dad63",
+      "size": 29716
+    },
+    "logos/vodafone.png": {
+      "sha256": "6c6cc41855796f56a19565c2a3bb9b38296ae0796ca225415831edefe8671ad6",
+      "size": 23177
+    },
+    "shared.js": {
+      "sha256": "8efc3cd72f66d650451e2ed7890f3ff8b277a65ec1598fbb0f5f9bf184a6a909",
+      "size": 27523
+    },
+    "style.css": {
+      "sha256": "7d2d4b3bfeba5487791c6b35c24f2de8c2bbd4f2eb0dcbe7ac559b8d27c9aa8b",
+      "size": 7533
+    },
+    "vendor/xlsx.full.min.js": {
+      "sha256": "c9506197caf809a075b6dee1da0d36fb19da7158ffe8a88e7b0c96c5d8623c99",
+      "size": 881727
+    }
+  },
+  "sig": "DRp+N8BN7t/hyojip/o7CtLeFFIIsl5OBouKTGzUjTWYBbzg7cDjCAp2kq6fBSH9W9x8Yy+HZiGP7Zn1N2bwDQ=="
+}
