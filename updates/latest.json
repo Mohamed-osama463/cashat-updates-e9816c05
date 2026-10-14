@@ -1,8 +1,8 @@
 {
   "app": "cashat",
-  "version": 2,
-  "published": "2026-10-14T10:53:48.304Z",
-  "notes": "Test update: window title now reads \"Cashat – نظام الكاشير\"",
+  "version": 3,
+  "published": "2026-10-14T12:46:54.998Z",
+  "notes": "Visible test: green \"تم التحديث عن بُعد\" line in the cashier header",
   "minShell": 1,
   "files": {
     "admin.html": {
@@ -22,8 +22,8 @@
       "size": 73274
     },
     "index.html": {
-      "sha256": "6145166ca7629e7fa772eed9b8cecda9ceba55f8ab4d66b4fac726219f6213f5",
-      "size": 7861
+      "sha256": "bf1488012e8f7d50a648e2f0bde972fcbadd148e20ab2f7dc878f8aa4674d709",
+      "size": 8097
     },
     "logos/cashat.png": {
       "sha256": "b67385db1fa542f8a4cb4a67e1d168c88a47ff0c2fc56bb52dacd1a046d816e9",
@@ -54,5 +54,5 @@
       "size": 881727
     }
   },
-  "sig": "8iIEDWEUKDe1imgaonOZIPmbbduw3467HfL100F4p+UT78ynJb9YT16CUtcD3vqTZEgR5hzurWwWGRPOqNpECQ=="
+  "sig": "uUaH9kbrf8yVSiDV2ux5TWJNcp19W806nx/13ME1/GazvDgY6Kw4tZc93FRU9plqKTfxGYVmBuW8Ha3RGfIfBw=="
 }
