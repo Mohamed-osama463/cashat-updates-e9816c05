@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cashat – لوحة الإدارة</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .shell{height:100vh;display:grid;grid-template-columns:208px 1fr}
+  .side{background:rgba(0,0,0,.45);border-inline-end:1px solid var(--line);display:flex;flex-direction:column;padding:18px 12px;gap:6px}
+  .brand{font-size:26px;font-weight:800;letter-spacing:1px;background:linear-gradient(180deg,#ff6a76,var(--red));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.2}
+  .side .sub{font-size:12px;color:var(--mute);margin-bottom:18px}
+  .nav{display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border-radius:12px;color:var(--mute);font-weight:600;font-size:14.5px;text-align:start;width:100%}
+  .nav:hover{background:var(--surface2);color:var(--ink)}
+  .nav.on{background:linear-gradient(180deg,var(--red-hi),var(--red));color:#fff;box-shadow:0 6px 18px rgba(225,29,46,.3)}
+  .grow{flex:1}
+  .main{min-width:0;min-height:0;display:flex;flex-direction:column;padding:18px 22px 20px;gap:14px}
+  .bar{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:40px}
+  .bar h1{font-size:21px}
+  .bar .muted{min-width:160px}
+  #view{flex:1;min-height:0;display:flex;flex-direction:column;gap:14px}
+  .tools{flex:none;display:flex;gap:10px;align-items:center;justify-content:center}
+  .tools input,.tools select{width:190px}
+  .panel{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+  .panel.fill{flex:1}
+  .tw{flex:1;min-height:0;overflow:hidden}
+  .phead{flex:none;height:54px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line)}
+  .phead h3{font-size:16px}
+  .cards5{flex:none;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .stat{padding:12px 10px;border-top:3px solid var(--red)}
+  .stat.plain{border-top-color:var(--line2)}
+  .stat small{display:block;color:var(--mute);font-size:12.5px}
+  .stat b{font-size:clamp(17px,2.4vw,24px);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .two{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .split{flex:1;min-height:0;display:grid;grid-template-columns:5fr 6fr;gap:14px}
+  .bars{flex:1;min-height:0;display:flex;gap:10px;align-items:flex-end;justify-content:center;padding:14px 16px 12px}
+  .bar-c{flex:1;max-width:84px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;font-size:11.5px;color:var(--mute)}
+  .bar-c .col{width:100%;flex:1;display:flex;align-items:flex-end;min-height:0}
+  .bar-c i{display:block;width:100%;border-radius:8px 8px 0 0;background:linear-gradient(var(--red-hi),var(--red-lo));min-height:3px;transition:height .4s var(--ease)}
+  .bar-c b{color:var(--ink);font-size:11.5px;font-weight:600}
+  .subtabs{flex:none;display:flex;gap:6px;justify-content:center;padding:10px 12px;border-bottom:1px solid var(--line)}
+  .pill{height:32px;padding:0 14px;border-radius:99px;border:1px solid var(--line2);color:var(--mute);font-size:13px;font-weight:600}
+  .pill:hover{color:var(--ink);border-color:var(--red)}
+  .pill.on{background:var(--red-soft);border-color:var(--red);color:#fff}
+  .acts{display:flex;gap:6px;justify-content:center;flex-wrap:nowrap}
+  .setgrid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px;align-content:start}
+  .setcard{padding:18px;display:flex;flex-direction:column;gap:12px}
+  .setcard.wide{grid-column:1/-1}
+  .setcard h3{font-size:16px}
+  .rr{display:grid;grid-template-columns:1fr 96px;gap:8px}
+  @media (max-width:1180px){
+    .shell{grid-template-columns:72px 1fr}
+    .nav span,.side .sub{display:none}
+    .nav{justify-content:center;padding:0}
+    .brand{font-size:15px}
+  }
+  .gate{height:100vh;display:grid;place-items:center}
+  .gate .card{width:min(360px,92vw);padding:30px;display:flex;flex-direction:column;gap:14px}
+  .gate .brand{font-size:36px}
+  .lockic{width:56px;height:56px;border-radius:50%;margin:0 auto;display:grid;place-items:center;background:var(--red-soft);color:var(--red-hi)}
+  .err{min-height:20px;color:var(--warn);font-size:13px}
+  .empty-s{flex:1;display:grid;place-items:center;color:var(--mute)}
+  dialog.wide{width:min(500px,94vw)}
+  .dlg.tight{gap:10px;padding:20px}
+  @media (max-height:720px){.note{display:none}.setcard{padding:14px;gap:9px}.autosave{padding-top:9px}}
+  .note{font-size:12.5px;color:var(--mute)}
+  .autosave{display:flex;align-items:center;justify-content:center;gap:12px;padding-top:12px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .autosave .muted{direction:ltr;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<dialog id="editDlg" class="wide"><div class="dlg tight">
+  <h2 id="eTitle">تعديل عملية</h2>
+  <div class="muted" id="editInfo"></div>
+  <div class="grid2">
+    <label class="f"><span>التاريخ</span><input id="eDate" type="date"></label>
+    <label class="f"><span>الوقت</span><input id="eTime" type="time"></label>
+  </div>
+  <label class="f"><span>الزر</span><select id="eBtn"></select></label>
+  <label class="f"><span>المبلغ (ج.م)</span><input id="eAmt" type="number" step="any" min="0"></label>
+  <div class="grid2" id="eSvcWrap">
+    <label class="f"><span>نسبة العمولة %</span><input id="eRate" type="number" step="any" min="0"></label>
+    <label class="f"><span>العمولة (ج.م)</span><input id="eComm" type="number" step="any" min="0"></label>
+  </div>
+  <label class="f"><span>ملاحظة / تفاصيل</span><input id="eLabel" placeholder="اختياري"></label>
+  <div class="row"><button class="btn-ghost" id="eCancel">إلغاء</button><button class="btn-pri" id="eOk">حفظ</button></div>
+</div></dialog>
+
+<dialog id="prodDlg"><div class="dlg tight">
+  <h2 id="pTitle">منتج</h2>
+  <label class="f"><span>اسم المنتج</span><input id="pName"></label>
+  <div class="grid2">
+    <label class="f"><span>السعر (ج.م)</span><input id="pPrice" type="number" step="any" min="0"></label>
+    <label class="f"><span>المخزون</span><input id="pStock" type="number" min="0"></label>
+  </div>
+  <div class="row"><button class="btn-ghost" id="pCancel">إلغاء</button><button class="btn-pri" id="pOk">حفظ</button></div>
+</div></dialog>
+
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="shared.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
