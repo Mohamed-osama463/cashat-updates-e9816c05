@@ -1,8 +1,8 @@
 {
   "app": "cashat",
-  "version": 1,
-  "published": "2026-10-14T10:48:39.988Z",
-  "notes": "First release – update channel enabled",
+  "version": 2,
+  "published": "2026-10-14T10:53:48.304Z",
+  "notes": "Test update: window title now reads \"Cashat – نظام الكاشير\"",
   "minShell": 1,
   "files": {
     "admin.html": {
@@ -22,8 +22,8 @@
       "size": 73274
     },
     "index.html": {
-      "sha256": "76533f805a53b747ef003308416c2e0ca78d956994fb4500c9e600b0636f693c",
-      "size": 7960
+      "sha256": "6145166ca7629e7fa772eed9b8cecda9ceba55f8ab4d66b4fac726219f6213f5",
+      "size": 7861
     },
     "logos/cashat.png": {
       "sha256": "b67385db1fa542f8a4cb4a67e1d168c88a47ff0c2fc56bb52dacd1a046d816e9",
@@ -54,5 +54,5 @@
       "size": 881727
     }
   },
-  "sig": "DRp+N8BN7t/hyojip/o7CtLeFFIIsl5OBouKTGzUjTWYBbzg7cDjCAp2kq6fBSH9W9x8Yy+HZiGP7Zn1N2bwDQ=="
+  "sig": "8iIEDWEUKDe1imgaonOZIPmbbduw3467HfL100F4p+UT78ynJb9YT16CUtcD3vqTZEgR5hzurWwWGRPOqNpECQ=="
 }
